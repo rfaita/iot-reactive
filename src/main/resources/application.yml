@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        sensorEvents-in-0:
+          destination: iot.edge.topic
+          binder: rabbit
+          group: events-sensor-consumer-group
+      rabbit:
+        bindings:
+          sensorEvents-in-0:
+            consumer:
+              queueNameGroupOnly: true
+
+      binders:
+        rabbit:
+          type: rabbit
+          defaultCandidate: false
+          inheritEnvironment: false
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+server:
+  port: 9091
