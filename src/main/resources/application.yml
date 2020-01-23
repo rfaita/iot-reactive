@@ -42,7 +42,7 @@ spring:
           sensorEvents-in-0:
             consumer:
               queueNameGroupOnly: true
-    binders:
+      binders:
         rabbit:
           type: rabbit
           defaultCandidate: false
